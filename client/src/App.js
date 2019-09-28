@@ -17,6 +17,7 @@ const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const SignInAndSignUpPage = lazy(() => import('./pages/sign-and-sign-up-page/sign-and-sign-up-page.component'));
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
+const ContactPage = lazy(() => import('./pages/contact/contact.component'));
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
@@ -31,6 +32,7 @@ const App = ({ checkUserSession, currentUser }) => {
         <ErrorBoundary>
           <Suspense fallback={<Spinner />}>
             <Route exact path='/' component={HomePage} />
+            <Route path='/contact' component={ContactPage} />
             <Route path='/shop' component={ShopPage} />
             <Route exact path='/checkout' component={CheckoutPage} />
             <Route exact path='/signin' render={()=> currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage />)} />
