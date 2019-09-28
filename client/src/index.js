@@ -9,6 +9,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import storeConfig from './redux/store';
 
+import * as sericeWorker from './serviceWorker';
+
 import { BrowserRouter } from 'react-router-dom';
 
 const app = (
@@ -22,3 +24,5 @@ const app = (
 )
 
 ReactDOM.render(app, document.getElementById('root'));
+
+sericeWorker.register();
